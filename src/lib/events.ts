@@ -1,0 +1,13 @@
+export const APP_ON_NAVIGATE = "App.OnNavigate";
+export const PLAYER_ON_AV_START = "Player.OnAVStart";
+export const PLAYER_ON_PAUSE = "Player.OnPause";
+export const PLAYER_ON_PLAY = "Player.OnPlay";
+export const PLAYER_ON_PROPERTY_CHANGED = "Player.OnPropertyChanged";
+export const PLAYER_ON_RESUME = "Player.OnResume";
+export const PLAYER_ON_STOP = "Player.OnStop";
+export const PLAYLIST_ON_ADD = "Playlist.OnAdd";
+export const PLAYLIST_ON_CLEAR = "Playlist.OnClear";
+export const PLAYLIST_ON_REMOVE = "Playlist.OnRemove";
+export const SOCKET_CLOSE = "Socket.Close";
+export const SOCKET_ERROR = "Socket.Error";
+export const SOCKET_OPEN = "Socket.Open";

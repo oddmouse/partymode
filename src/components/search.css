@@ -1,0 +1,172 @@
+x-search {
+  display: contents;
+
+  article {
+    max-width: 65ch;
+
+    &::after {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 7rem;
+      pointer-events: none;
+      content: "";
+      background-image: linear-gradient(var(--color-neutral-900) 50%, transparent);
+    }
+  }
+
+  form {
+    position: sticky;
+    top: 1rem;
+    z-index: 1;
+    display: flex;
+    padding: 0;
+    margin-bottom: 2rem;
+    color: var(--color-neutral-100);
+    background-color: var(--color-neutral-800);
+    border-radius: var(--radius-full);
+  }
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: inherit;
+  color: var(--color-primary-400);
+  appearance: none;
+  user-select: text;
+  outline: 0;
+  background-color: transparent;
+  border: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  &::placeholder {
+    color: var(--color-neutral-600);
+  }
+
+  &::selection {
+    color: var(--color-neutral-900);
+    background-color: var(--color-primary-400);
+  }
+}
+
+select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem 0 1rem;
+  color: var(--color-primary-400);
+  transition: color 0.2s var(--ease-out-cubic);
+
+  &:focus-within,
+  &:hover,
+  &:has(option:checked):hover {
+    color: var(--color-primary-100);
+  }
+}
+
+label svg {
+  flex-shrink: 0;
+}
+
+label > svg {
+  width: 1rem;
+}
+
+label > div > svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+label > div > * {
+  display: none;
+}
+
+label:has(option:nth-child(1):checked) > div > :nth-child(1),
+label:has(option:nth-child(2):checked) > div > :nth-child(2),
+label:has(option:nth-child(3):checked) > div > :nth-child(3),
+label:has(option:nth-child(4):checked) > div > :nth-child(4),
+label:has(option:nth-child(5):checked) > div > :nth-child(5),
+label:has(option:nth-child(6):checked) > div > :nth-child(6),
+label:has(option:nth-child(7):checked) > div > :nth-child(7) {
+  display: block;
+}
+
+button[name="clear"] {
+  align-self: center;
+  padding: 0.5rem;
+  color: var(--color-primary-400);
+  outline: 0;
+  background-color: transparent;
+}
+
+button[name="clear"]:focus,
+button[name="clear"]:hover {
+  color: var(--color-primary-100);
+}
+
+button[name="clear"].hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+button[type="submit"] {
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  border-radius: var(--radius-4xl);
+  border-top-left-radius: var(--radius-xs);
+  border-bottom-left-radius: var(--radius-xs);
+}
+
+form:not(.loading) button[type="submit"] svg :first-child,
+form.loading button[type="submit"] svg :last-child {
+  display: none;
+}
+
+form.loading button[type="submit"] svg :first-child,
+form:not(.loading) button[type="submit"] svg :last-child {
+  display: block;
+}
+
+form.loading button[type="submit"] svg {
+  animation: spin 1s linear infinite;
+}
+
+p:empty {
+  display: none;
+}
+
+ol {
+  display: grid;
+  width: 100%;
+  min-width: none;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  counter-reset: li;
+}
+
+@media (width >= 64rem) {
+  x-search button[type="submit"] {
+    padding: 1rem 2rem 1rem 1.5rem;
+    padding-right: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  x-search article::after {
+    height: 9rem;
+  }
+}

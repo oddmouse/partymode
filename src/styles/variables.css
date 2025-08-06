@@ -1,0 +1,43 @@
+:root {
+  /* Kodi Blue (400 | #17b2e7) */
+  --color-primary-50: oklch(97.7% 0.013 233.07);
+  --color-primary-100: oklch(94.322% 0.02035 233.27);
+  --color-primary-200: oklch(88.545% 0.0467 227.35);
+  --color-primary-300: oklch(80.467% 0.09405 226.77);
+  --color-primary-400: oklch(71.49% 0.1374 229.11);
+  --color-primary-500: oklch(65.908% 0.15017 233.77);
+  --color-primary-600: oklch(56.727% 0.14293 238.42);
+  --color-primary-700: oklch(48.445% 0.1227 239.2);
+  --color-primary-800: oklch(43.263% 0.10247 237.24);
+  --color-primary-900: oklch(38.582% 0.08623 237.33);
+  --color-primary-950: oklch(29.3% 0.066 239.61);
+
+  /* Kodi Gray (800 | #313131) */
+  --color-neutral-50: oklch(98.5% 0 0);
+  --color-neutral-100: oklch(97.553% 0 0);
+  --color-neutral-200: oklch(93.305% 0 0);
+  --color-neutral-300: oklch(88.658% 0 0);
+  --color-neutral-400: oklch(73.01% 0 0);
+  --color-neutral-500: oklch(58.363% 0 0);
+  --color-neutral-600: oklch(47.215% 0 0);
+  --color-neutral-700: oklch(40.967% 0 0);
+  --color-neutral-800: oklch(31.32% 0 0);
+  --color-neutral-900: oklch(22.71% 0 0);
+  --color-neutral-950: oklch(14.5% 0 0);
+
+  /* Border Radius */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  --radius-full: calc(infinity * 1px);
+
+  /* Transition timing functions (https://easings.net) */
+  --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+}

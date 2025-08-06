@@ -1,0 +1,41 @@
+x-utilities {
+  display: contents;
+
+  article {
+    max-width: 50ch;
+    text-align: center;
+  }
+
+  header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  section {
+    display: grid;
+    gap: 2rem;
+  }
+
+  ul {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  figure {
+    max-width: 10rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+}
