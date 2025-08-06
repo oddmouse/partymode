@@ -1,0 +1,27 @@
+{
+  "name": "partymode",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "NODE_ENV=production vite build",
+    "postbuild": "./scripts/postbuild.ts",
+    "clean": "rm -rf ./dist ./release",
+    "dev": "vite --host",
+    "preview": "vite preview",
+    "release": "./scripts/release.ts",
+    "sync": "pnpm build && rsync -av --delete ./dist/ \"$HOME/Library/Application Support/Kodi/addons/webinterface.partymode/\""
+  },
+  "dependencies": {
+    "qr-creator": "^1.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.3",
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@types/node": "^24.2.0",
+    "postcss-load-config": "^6.0.1",
+    "tsx": "^4.20.3",
+    "vite": "^7.0.6",
+    "vite-plugin-minify": "^2.1.0",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}

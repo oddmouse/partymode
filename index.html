@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="oklch(22.71% 0 0)">
+  <meta property="og:title" content="PartyMode for Kodi">
+  <meta property="og:description" content="Where’s the party at?">
+  <meta property="og:image" content="./card.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/styles/global.css">
+  <title>PartyMode for Kodi</title>
+</head>
+
+<body>
+  <svg style="display:none">
+    <symbol id="bolt-icon">
+      <path
+        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      <circle cx="12" cy="12" r="4" />
+    </symbol>
+    <symbol id="chevron-down-icon">
+      <path d="m6 9 6 6 6-6" />
+    </symbol>
+    <symbol id="clapperboard-icon">
+      <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+      <path d="m6.2 5.3 3.1 3.9" />
+      <path d="m12.4 3.4 3.1 4" />
+      <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+    </symbol>
+    <symbol id="disc-icon">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+    </symbol>
+    <symbol id="fast-forward-icon">
+      <path d="M12 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 12 18z" />
+      <path d="M2 6a2 2 0 0 1 3.414-1.414l6 6a2 2 0 0 1 0 2.828l-6 6A2 2 0 0 1 2 18z" />
+    </symbol>
+    <symbol id="goblet-crack-icon">
+      <path d="M8 2c-1.78 2.72-3 6.65-3 9a7 7 0 1 0 14 0c0-2.35-1.22-6.28-3-9Z" />
+      <path d="M12 18v4" />
+      <path d="M8 22h8" />
+      <path d="m13 11-1-1 2-2-3-3 3-3" />
+    </symbol>
+    <symbol id="list-end-icon">
+      <path d="M16 12H3" />
+      <path d="M16 6H3" />
+      <path d="M10 18H3" />
+      <path d="M21 6v10a2 2 0 0 1-2 2h-5" />
+      <path d="m16 16-2 2 2 2" />
+    </symbol>
+    <symbol id="list-start-icon">
+      <path d="M16 12H3" />
+      <path d="M16 18H3" />
+      <path d="M10 6H3" />
+      <path d="M21 18V8a2 2 0 0 0-2-2h-5" />
+      <path d="m16 8-2-2 2-2" />
+    </symbol>
+    <symbol id="list-video-icon">
+      <path d="M12 12H3" />
+      <path d="M16 6H3" />
+      <path d="M12 18H3" />
+      <path d="m16 12 5 3-5 3v-6Z" />
+    </symbol>
+    <symbol id="list-x-icon">
+      <path d="M11 12H3" />
+      <path d="M16 6H3" />
+      <path d="M16 18H3" />
+      <path d="m19 10-4 4" />
+      <path d="m15 10 4 4" />
+    </symbol>
+    <symbol id="loader-circle-icon">
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    </symbol>
+    <symbol id="maximize-icon">
+      <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+      <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+      <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+      <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+    </symbol>
+    <symbol id="mic-vocal-icon">
+      <path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
+      <path d="M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5" />
+      <circle cx="16" cy="7" r="5" />
+    </symbol>
+    <symbol id="monitor-x-icon">
+      <path d="m14.5 12.5-5-5" />
+      <path d="m9.5 12.5 5-5" />
+      <rect width="20" height="14" x="2" y="3" rx="2" />
+      <path d="M12 17v4" />
+      <path d="M8 21h8" />
+    </symbol>
+    <symbol id="music-icon">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </symbol>
+    <symbol id="pause-icon">
+      <rect x="14" y="3" width="5" height="18" rx="1" />
+      <rect x="5" y="3" width="5" height="18" rx="1" />
+    </symbol>
+    <symbol id="play-icon">
+      <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+    </symbol>
+    <symbol id="power-icon">
+      <path d="M12 2v10" />
+      <path d="M18.4 6.6a9 9 0 1 1-12.77.04" />
+    </symbol>
+    <symbol id="refresh-ccw-icon">
+      <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+      <path d="M3 3v5h5" />
+      <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+      <path d="M16 16h5v5" />
+    </symbol>
+    <symbol id="rewind-icon">
+      <path d="M12 6a2 2 0 0 0-3.414-1.414l-6 6a2 2 0 0 0 0 2.828l6 6A2 2 0 0 0 12 18z" />
+      <path d="M22 6a2 2 0 0 0-3.414-1.414l-6 6a2 2 0 0 0 0 2.828l6 6A2 2 0 0 0 22 18z" />
+    </symbol>
+    <symbol id="search-icon">
+      <path d="m21 21-4.34-4.34" />
+      <circle cx="11" cy="11" r="8" />
+    </symbol>
+    <symbol id="shuffle-icon">
+      <path d="m18 14 4 4-4 4" />
+      <path d="m18 2 4 4-4 4" />
+      <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
+      <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
+      <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
+    </symbol>
+    <symbol id="skip-forward-icon">
+      <path d="M21 4v16" />
+      <path d="M6.029 4.285A2 2 0 0 0 3 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z" />
+    </symbol>
+    <symbol id="square-icon">
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+    </symbol>
+    <symbol id="tv-icon">
+      <path d="m17 2-5 5-5-5" />
+      <rect width="20" height="15" x="2" y="7" rx="2" />
+    </symbol>
+    <symbol id="video-icon">
+      <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" />
+      <rect x="2" y="6" width="14" height="12" rx="2" />
+    </symbol>
+    <symbol id="x-icon">
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </symbol>
+  </svg>
+
+  <template id="home">
+    <article>
+      <header>
+        <h2>Where’s the party at?</h2>
+      </header>
+      <ul>
+        <li>
+          <button type="button" name="musicvideos" disabled>
+            <svg viewBox="-6 -6 36 36">
+              <use href="#mic-vocal-icon" />
+            </svg>
+            <span>
+              <b>Music Videos</b>
+              <i>0 music videos</i>
+            </span>
+            <svg viewBox="0 0 24 24">
+              <use href="#shuffle-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="songs" disabled>
+            <svg viewBox="-6 -6 36 36">
+              <use href="#music-icon" />
+            </svg>
+            <span>
+              <b>Songs</b>
+              <i>0 songs</i>
+            </span>
+            <svg viewBox="0 0 24 24">
+              <use href="#shuffle-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="episodes" disabled>
+            <svg viewBox="-6 -6 36 36">
+              <use href="#tv-icon" />
+            </svg>
+            <span>
+              <b>TV Episodes</b>
+              <i>0 episodes</i>
+            </span>
+            <svg viewBox="0 0 24 24">
+              <use href="#shuffle-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="movies" disabled>
+            <svg viewBox="-6 -6 36 36">
+              <use href="#clapperboard-icon" />
+            </svg>
+            <span>
+              <b>Movies</b>
+              <i>0 movies</i>
+            </span>
+            <svg viewBox="0 0 24 24">
+              <use href="#shuffle-icon" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </article>
+  </template>
+
+  <template id="playlist">
+    <article>
+      <header>
+        <h2>Loading…</h2>
+      </header>
+      <ol></ol>
+    </article>
+  </template>
+
+  <template id="playlist-item">
+    <li>
+      <button type="button">
+        <img>
+        <span>
+          <b></b>
+          <span></span>
+        </span>
+      </button>
+    </li>
+  </template>
+
+  <template id="utilities">
+    <article>
+      <header>
+        <h2>Utilities</h2>
+      </header>
+      <section>
+        <ul>
+          <li>
+            <button type="button" name="video">
+              <svg height="24" viewBox="0 0 24 24">
+                <use href="#video-icon" />
+              </svg>
+              <span>Update video library</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="audio">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <use href="#music-icon" />
+              </svg>
+              <span>Update music library</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="close">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <use href="#monitor-x-icon" />
+              </svg>
+              <span>Close on-screen window</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="fullscreen">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <use href="#maximize-icon" />
+              </svg>
+              <span>Set fullscreen</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" name="reboot">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <use href="#power-icon" />
+              </svg>
+              <span>Reboot system</span>
+            </button>
+          </li>
+        </ul>
+        <aside>
+          <figure></figure>
+          <a></a>
+        </aside>
+      </section>
+    </article>
+  </template>
+
+  <template id="search">
+    <article>
+      <form>
+        <label>
+          <div>
+            <svg viewBox="0 0 24 24">
+              <use href="#mic-vocal-icon" />
+            </svg>
+            <svg viewBox="0 0 24 24">
+              <use href="#music-icon" />
+            </svg>
+            <svg viewBox="0 0 24 24">
+              <use href="#tv-icon" />
+            </svg>
+            <svg viewBox="0 0 24 24">
+              <use href="#clapperboard-icon" />
+            </svg>
+          </div>
+          <svg viewBox="0 0 24 24">
+            <use href="#chevron-down-icon" />
+          </svg>
+          <select>
+            <option value="musicvideos">Music Videos</option>
+            <option value="songs">Songs</option>
+            <option value="episodes">TV Episodes</option>
+            <option value="movies">Movies</option>
+          </select>
+        </label>
+        <input autocapitalize="none" autocorrect="off" enterkeyhint="search" placeholder="Search" spellcheck="false"
+          type="text" />
+        <button class="hidden" type="button" name="clear">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <use href="#x-icon" />
+          </svg>
+        </button>
+        <button type="submit" name="submit">
+          <svg width="32" height="32" viewBox="0 0 24 24">
+            <use href="#loader-circle-icon" />
+            <use href="#search-icon" />
+          </svg>
+        </button>
+      </form>
+      <section>
+        <p></p>
+        <ol></ol>
+      </section>
+    </article>
+  </template>
+
+  <template id="search-result">
+    <li>
+      <button type="button">
+        <img>
+        <span>
+          <b></b>
+          <span></span>
+        </span>
+      </button>
+    </li>
+  </template>
+
+  <template id="error">
+    <article>
+      <h2>
+        <svg width="48" height="48" viewBox="0 0 24 24">
+          <use href="#goblet-crack-icon" />
+        </svg>
+        <span>Party foul!</span>
+      </h2>
+      <p>Can’t get a hold of Kodi.</p>
+      <ol>
+        <li>Go to Kodi’s <b>Settings → Services → Control</b> section</li>
+        <li>Enable <b>Allow remote control via HTTP</b></li>
+        <li>Enable <b>Allow remote control from applications on other systems</b></li>
+      </ol>
+      <button type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <use href="#refresh-ccw-icon" />
+        </svg>
+        Refresh
+      </button>
+    </article>
+  </template>
+
+  <template id="navigation">
+    <nav>
+      <ul>
+        <li>
+          <button type="button" name="playlist">
+            <span>Playlist</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#list-video-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="utilities">
+            <span>Utilities</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#bolt-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="search">
+            <span>Search</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#search-icon" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul hidden>
+        <li>
+          <button type="button" name="rewind">
+            <span class="sr-only">Rewind</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#rewind-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="stop">
+            <span class="sr-only">Stop</span>
+            <svg viewBox=" 0 0 24 24">
+              <use href="#square-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="playpause" class="paused">
+            <span class="sr-only">Play/Pause</span>
+            <svg viewBox=" 0 0 24 24">
+              <use href="#play-icon" />
+              <use href="#pause-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="fast-forward">
+            <span class="sr-only">Fast Forward</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#fast-forward-icon" />
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="skip">
+            <span class="sr-only">Next</span>
+            <svg viewBox="0 0 24 24">
+              <use href="#skip-forward-icon" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <label>
+        <input type="checkbox" />
+        <svg viewBox="0 0 24 24">
+          <path d="M18 6 12 12" />
+          <path d="M12 12 6 6" />
+          <path d="M12 12 18 18" />
+          <path d="M6 18 12 12" />
+        </svg>
+        <span class="sr-only">Menu Toggle</span>
+      </label>
+    </nav>
+  </template>
+
+  <template id="context">
+    <aside>
+      <header>
+        <h3></h3>
+        <h4></h4>
+      </header>
+      <ul>
+        <li hidden>
+          <button type="button" name="next">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#list-start-icon" />
+            </svg>
+            <span>Queue next</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="now">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#play-icon" />
+            </svg>
+            <span>Play now</span>
+          </button>
+        </li>
+        <li hidden>
+          <button type="button" name="album">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#disc-icon" />
+            </svg>
+            <span>Play <i></i> album</span>
+          </button>
+        </li>
+        <li hidden>
+          <button type="button" name="show">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#shuffle-icon" />
+            </svg>
+            <span>Shuffle <i></i> episodes</span>
+          </button>
+        </li>
+        <li hidden>
+          <button type="button" name="remove">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#list-x-icon" />
+            </svg>
+            <span>Remove from queue</span>
+          </button>
+        </li>
+        <li hidden>
+          <button type="button" name="last">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#list-end-icon" />
+            </svg>
+            <span>Queue last</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" name="close">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <use href="#x-icon" />
+            </svg>
+            <span>Cancel</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+  </template>
+
+  <x-app></x-app>
+  <x-navigation></x-navigation>
+
+  <script src="/src/components/app.js" type="module"></script>
+</body>
+
+</html>

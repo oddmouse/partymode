@@ -1,0 +1,208 @@
+x-navigation {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  display: block;
+  pointer-events: none;
+
+  &::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
+    content: "";
+    background-color: var(--color-primary-400);
+    opacity: 0;
+    transition:
+      opacity 0.2s linear,
+      visibility 0.2s linear;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  nav > ul {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    opacity: 0;
+    transition:
+      opacity 0.4s var(--ease-in-out-back),
+      transform 0.4s var(--ease-in-out-back);
+  }
+
+  ul:first-of-type {
+    flex-direction: column;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+
+  ul:last-of-type {
+    position: absolute;
+    right: 5rem;
+    bottom: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  ul:first-of-type li:nth-child(1) {
+    transform: translate3d(0, 350%, 0);
+    transition-delay: 0.02s;
+  }
+
+  ul:first-of-type li:nth-child(2) {
+    transform: translate3d(0, 250%, 0);
+    transition-delay: 0.01s;
+  }
+
+  ul:first-of-type li:nth-child(3) {
+    transform: translate3d(0, 150%, 0);
+  }
+
+  ul:last-of-type li:nth-child(1) {
+    transform: translate3d(550%, 0, 0);
+    transition-delay: 0.04s;
+  }
+
+  ul:last-of-type li:nth-child(2) {
+    transform: translate3d(450%, 0, 0);
+    transition-delay: 0.03s;
+  }
+
+  ul:last-of-type li:nth-child(3) {
+    transform: translate3d(350%, 0, 0);
+    transition-delay: 0.02s;
+  }
+
+  ul:last-of-type li:nth-child(4) {
+    transform: translate3d(250%, 0, 0);
+    transition-delay: 0.01s;
+  }
+
+  ul:last-of-type li:nth-child(5) {
+    transform: translate3d(150%, 0, 0);
+  }
+
+  [name="playpause"]:not(.paused) svg :nth-child(1) {
+    display: none;
+  }
+
+  [name="playpause"].paused svg :nth-child(n + 2) {
+    display: none;
+  }
+
+  input {
+    position: absolute;
+    appearance: none;
+    pointer-events: none;
+    border: none;
+    opacity: 0;
+  }
+
+  button {
+    justify-content: end;
+    min-width: 9rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--color-primary-400);
+    white-space: nowrap;
+    background-color: var(--color-neutral-900);
+
+    ul:last-of-type & {
+      min-width: auto;
+      padding: 0.75rem;
+    }
+  }
+
+  button:hover {
+    color: var(--color-primary-100);
+  }
+
+  button > :last-child {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  label {
+    display: grid;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    margin: 0;
+    color: var(--color-neutral-100);
+    pointer-events: all;
+    cursor: pointer;
+    background-color: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-800);
+    border-radius: var(--radius-full);
+    transform: rotate(-45deg);
+    transition:
+      background-color 0.2s,
+      transform 0.4s var(--ease-in-out-back);
+  }
+
+  label > svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  label > svg path {
+    transition:
+      stroke-dashoffset 0.4s var(--ease-out-cubic),
+      stroke-width 0.4s var(--ease-out-cubic);
+  }
+
+  label > svg path {
+    stroke-width: 3;
+    stroke-dasharray: 18;
+    stroke-dashoffset: 17.9;
+  }
+
+  &:has(:checked) label > svg path {
+    stroke-width: 1.5;
+    stroke-dashoffset: 0;
+  }
+
+  &:has(:checked) ul:first-of-type li,
+  &:has(:checked) ul:last-of-type:not([hidden]) li {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &:has(:checked) label {
+    transform: rotate(0deg);
+  }
+
+  &:has(:checked)::before {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 0.95;
+  }
+}
+
+body:has(x-navigation :checked) {
+  overflow: hidden;
+}
+
+@media (width >= 64rem) {
+  x-navigation {
+    right: 3rem;
+    bottom: 3rem;
+  }
+}

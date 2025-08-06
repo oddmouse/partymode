@@ -1,0 +1,27 @@
+x-error {
+  display: contents;
+
+  article {
+    place-self: center;
+    width: 100%;
+    max-width: 65ch;
+    padding: 1.5rem 1.5rem 6rem;
+  }
+
+  h2 > svg {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  ol {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (width >= 40rem) {
+  x-error h2 > svg {
+    width: 12rem;
+    height: 12rem;
+  }
+}

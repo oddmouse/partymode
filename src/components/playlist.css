@@ -1,0 +1,28 @@
+x-playlist {
+  display: contents;
+
+  header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 0 auto;
+    color: var(--color-neutral-900);
+    list-style: none;
+    counter-reset: li;
+  }
+
+  ol + p {
+    display: none;
+    text-align: center;
+  }
+
+  ol:empty + p {
+    display: block;
+  }
+}
